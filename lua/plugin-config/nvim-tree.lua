@@ -76,8 +76,19 @@ nvim_tree.setup(
         },
         actions = {
             open_file = {
-                resize_window = true
-            }
-        }
+              -- 首次打开大小适配
+             resize_window = true,
+             -- 打开文件时关闭 tree
+            quit_on_open = false,
+           },
+         },
+        -- wsl install -g wsl-open
+        -- https://github.com/4U6U57/wsl-open/
+       system_open = {
+         -- mac
+         cmd = "open",
+        -- windows
+         -- cmd = "wsl-open",
+       },
     }
 )

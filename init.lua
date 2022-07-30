@@ -20,7 +20,8 @@ require("plugin-config.dashboard")
 
 -- //高亮  ：TSInstall
 require("plugin-config.nvim-treesitter")
-
+require("plugin-config.comment")
+require("plugin-config.fidget")
 
 -- 格式化插件
 require("plugin-config.neoformat")
@@ -28,8 +29,12 @@ require("plugin-config.switch")
 
 
 -- 内置LSP
+require("lsp.setup")
 require("lsp.cmp")
-
+require("lsp.ui")
+-- 格式化
+-- require("lsp.formatter")
+require("lsp.null-ls")
 -- VimspectorInstall
 -- https://puremourning.github.io/vimspector/configuration.html#remote-debugging-support
 require("spector.vimspector")

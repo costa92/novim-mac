@@ -75,8 +75,7 @@ packer.startup({
         config = function()
         require("goto-preview").setup {}
         end
-    })
-    
+    })    
     -- go 语法工具 
     use("fatih/vim-go")
     
@@ -124,7 +123,15 @@ packer.startup({
   -- UI 增强
   use("onsails/lspkind-nvim")
   use("tami5/lspsaga.nvim")
+  -- TypeScript 增强
+  use({ "jose-elias-alvarez/nvim-lsp-ts-utils", requires = "nvim-lua/plenary.nvim" })
+  -- Lua 增强
+  use("folke/lua-dev.nvim")  
+  -- JSON 增强
+  use("b0o/schemastore.nvim")
 
+  -- Rust 增强
+  use("simrat39/rust-tools.nvim")
   use({"michaelb/sniprun", run = "bash ./install.sh"})
   use("nvim-lua/plenary.nvim")
   use("windwp/nvim-spectre")
@@ -135,7 +142,10 @@ packer.startup({
      requires = {"rktjmp/lush.nvim"}
   }
 
-  if paccker_bootstrap then
+  -- Comment
+  use("numToStr/Comment.nvim")
+ 
+ if paccker_bootstrap then
       packer.sync()
     end
   end,
