@@ -63,3 +63,6 @@ cmp.setup.cmdline(":", {
   }),
 })
 
+-- 拼写建议
+vim.opt.spell = true
+vim.opt.spelllang = { 'en_us' }

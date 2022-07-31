@@ -21,9 +21,9 @@ vim.wo.signcolumn = "yes"
 vim.wo.colorcolumn = "100"
 
 -- 缩进2个空格等于一个Tab
-vim.o.tabstop = 2
-vim.bo.tabstop = 2
-vim.o.softtabstop = 2
+vim.o.tabstop = 1
+vim.bo.tabstop = 1
+vim.o.softtabstop = 1
 vim.o.shiftround = true
 
 -- 空格替代tab

@@ -232,6 +232,7 @@ pluginKeys.comment = {
     }
 }
 -- ctrl + /
+-- ctrl + -       // 注释
 map("n", "<C-_>", ",t", {noremap = false})
 map("v", "<C-_>", ",t", {noremap = false})
 -- map("i", "<C-_>", ",c", { noremap = false })
@@ -265,13 +266,14 @@ pluginKeys.mapLSP = function(mapbuf)
   Lspsaga 替换 gh
   --]]
   mapbuf("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
-  --[[
-  Lspsaga 替换 gr
+  -- Lspsaga 替换 gr
   mapbuf("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opt)
-  --]]
-  mapbuf("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opt)
   --[[
-  Lspsaga 替换 gp, gj, gk
+  mapbuf("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opt)
+  --]]      
+  --[[
+ 
+ Lspsaga 替换 gp, gj, gk
   mapbuf("n", "gp", "<cmd>lua vim.diagnostic.open_float()<CR>", opt)
   mapbuf("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<CR>", opt)
   mapbuf("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opt)
@@ -308,6 +310,44 @@ pluginKeys.mapVimspector = function()
     map("n", "<leader>dk", "<Plug>VimspectorStepOut", opt)
     map("n", "<leader>dl", "<Plug>VimspectorStepInto", opt)
 end
+
+-- Telescope
+map("n", "<C-p>", ":Telescope find_files<CR>", opt)
+map("n", "<C-f>", ":Telescope live_grep<CR>", opt)
+-- Telescope 列表中 插入模式快捷键
+pluginKeys.telescopeList = {
+  i = {
+    -- 上下移动
+    ["<C-j>"] = "move_selection_next",
+    ["<C-k>"] = "move_selection_previous",
+    ["<C-n>"] = "move_selection_next",
+    ["<C-p>"] = "move_selection_previous",
+    -- 历史记录
+    ["<Down>"] = "cycle_history_next",
+    ["<Up>"] = "cycle_history_prev",
+    -- 关闭窗口
+    -- ["<esc>"] = actions.close,
+    ["<C-c>"] = "close",
+    -- 预览窗口上下滚动
+    ["<C-u>"] = "preview_scrolling_up",
+    ["<C-d>"] = "preview_scrolling_down",
+  },
+}
+
+
+-- 自定义 toggleterm 3个不同类型的命令行窗口
+-- <leader>ta 浮动
+-- <leader>tb 右侧
+-- <leader>tc 下方
+-- 特殊lazygit 窗口，需要安装lazygit
+-- <leader>tg lazygit
+pluginKeys.mapToggleTerm = function(toggleterm)
+  vim.keymap.set({ "n", "t" }, "<leader>ta", toggleterm.toggleA)
+  vim.keymap.set({ "n", "t" }, "<leader>tb", toggleterm.toggleB)
+  vim.keymap.set({ "n", "t" }, "<leader>tc", toggleterm.toggleC)
+  vim.keymap.set({ "n", "t" }, "<leader>tg", toggleterm.toggleG)
+end
+
 
 -- nvim-cmp 自动补全
 pluginKeys.cmp = function(cmp)

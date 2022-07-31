@@ -42,19 +42,26 @@ packer.startup({
     use({
       "kyazdani42/nvim-tree.lua",
       requires = "kyazdani42/nvim-web-devicons",
-    })
-    
+    }) 
     -- bufferline
     use({
       "akinsho/bufferline.nvim",
       requires = { "kyazdani42/nvim-web-devicons", "moll/vim-bbye" },
     })
-
     -- lualine
     use({
       "nvim-lualine/lualine.nvim",
       requires = { "kyazdani42/nvim-web-devicons" },
     })
+        
+    -- telescope
+    use({
+      "nvim-telescope/telescope.nvim",
+      requires = { "nvim-lua/plenary.nvim" },
+    })
+    -- telescope extensions
+    use("LinArcX/telescope-env.nvim")
+    use("nvim-telescope/telescope-ui-select.nvim")
 
     -- 方法聚焦
     use({
@@ -79,6 +86,7 @@ packer.startup({
     -- go 语法工具 
     use("fatih/vim-go")
     
+    use("Shougo/deoplete.nvim")
     --   错误美化
     use({
         "folke/trouble.nvim",
@@ -94,7 +102,7 @@ packer.startup({
         "AndrewRadev/switch.vim",
         event = {"BufRead", "BufNewFile"}
     })
-  
+
    --------------------- LSP --------------------
    use({"williamboman/nvim-lsp-installer"})
    -- lsp 加载进度ui 
@@ -114,6 +122,8 @@ packer.startup({
   use("hrsh7th/cmp-path") -- { name = 'path' }
   use("hrsh7th/cmp-cmdline") -- { name = 'cmdline' }
   use("hrsh7th/cmp-nvim-lsp-signature-help") -- { name = 'nvim_lsp_signature_help' }
+ 
+                
   -- //拼写建议
   use("f3fora/cmp-spell")
   
@@ -129,7 +139,8 @@ packer.startup({
   use("folke/lua-dev.nvim")  
   -- JSON 增强
   use("b0o/schemastore.nvim")
-
+  
+  use({"jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim"})
   -- Rust 增强
   use("simrat39/rust-tools.nvim")
   use({"michaelb/sniprun", run = "bash ./install.sh"})
@@ -141,10 +152,17 @@ packer.startup({
      "ellisonleao/gruvbox.nvim",
      requires = {"rktjmp/lush.nvim"}
   }
-
+  use("junegunn/fzf.vim")
+  use({ "akinsho/toggleterm.nvim" })
   -- Comment
   use("numToStr/Comment.nvim")
  
+  -- nvim-autopairs
+  use("windwp/nvim-autopairs")               
+  use("windwp/nvim-ts-autotag")
+  -- git
+  use({"lewis6991/gitsigns.nvim"})
+                
  if paccker_bootstrap then
       packer.sync()
     end

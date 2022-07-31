@@ -15,19 +15,21 @@ require("autocmds")
 require("plugin-config.nvim-tree")
 require("plugin-config.bufferline")
 require("plugin-config.lualine")
-        
+require("plugin-config.telescope")        
 require("plugin-config.dashboard")
+require("plugin-config.toggleterm")
 
 -- //高亮  ：TSInstall
 require("plugin-config.nvim-treesitter")
 require("plugin-config.comment")
 require("plugin-config.fidget")
-
+require("plugin-config.nvim-autopairs")
 -- 格式化插件
 require("plugin-config.neoformat")
 require("plugin-config.switch")
 
-
+-- Git
+require("plugin-config.gitsigns")
 -- 内置LSP
 require("lsp.setup")
 require("lsp.cmp")
